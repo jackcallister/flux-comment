@@ -17,7 +17,7 @@ var CommentStore = assign({}, EventEmitter.prototype, {
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
-  
+
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
@@ -27,7 +27,7 @@ var CommentStore = assign({}, EventEmitter.prototype, {
   }
 });
 
-CommentStore.dispatchToken = CommentAppDispatcher.register(function(payload) {
+CommentAppDispatcher.register(function(payload) {
   var action = payload.action;
 
   switch(action.type) {
