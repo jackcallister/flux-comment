@@ -5,7 +5,6 @@ var Comment = React.createClass({
   render: function() {
     return (
       <div className='comment'>
-        Author: {this.props.comment.author}
         Body: {this.props.comment.text}
       </div>
     );
