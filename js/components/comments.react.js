@@ -3,7 +3,7 @@ var Comment = require('../components/comment.react');
 
 var React = require('react');
 
-function getStateFromStores() {
+function getStateFromStore() {
   return {
     comments: CommentStore.getAll()
   }
@@ -12,7 +12,7 @@ function getStateFromStores() {
 var Comments = React.createClass({
 
   getInitialState: function() {
-    return getStateFromStores();
+    return getStateFromStore();
   },
 
   componentDidMount: function() {
@@ -24,8 +24,8 @@ var Comments = React.createClass({
   },
 
   render: function() {
-    var comments = this.state.comments.map(function(comment) {
-      return <Comment key={comment.id} comment={comment} />
+    var comments = this.state.comments.map(function(comment, index) {
+      return <Comment key={'comment-' + index} comment={comment} />
     });
 
     return (
@@ -36,7 +36,7 @@ var Comments = React.createClass({
   },
 
   _onChange: function() {
-    this.setState(getStateFromStores());
+    this.setState(getStateFromStore());
   }
 });
 
