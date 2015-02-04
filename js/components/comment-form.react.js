@@ -4,37 +4,26 @@ var React = require('react');
 
 var CommentForm = React.createClass({
 
-  getInitialState: function() {
-    return {
-      value: '' 
-    };
-  },
-
   render: function() {
     return (
       <div className='comment-form'>
         <h1>CommentForm</h1>
-        <textarea value={this.state.value} onChange={this._onChange} />
-        <button onClick={this._onClick}>Submit</button>
+        <textarea ref='text' />
+        <button onClick={this._onSubmit}>Submit</button>
       </div>
     );
   },
 
-  _onChange: function(e) {
-    this.setState({
-      value: e.target.value
-    });
-  },
+  _onSubmit: function(e) {
+    var textNode = this.refs.text.getDOMNode();
+    var text = this.refs.text.getDOMNode().value;
 
-  _onClick: function(e) {
-    if (this.state.value != '') {
+    if (text != '') {
       CommentActionCreators.createComment({
-        id: 2,
-        author: 'Current Author',
-        text: this.state.value
+        text: text
       });
 
-      this.setState({ value: '' });
+      textNode.value = '';
     }
   }
 });
