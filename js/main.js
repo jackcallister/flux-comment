@@ -1,3 +1,5 @@
+require("6to5/polyfill");
+
 var App = require('./components/app.react');
 var React = require('react');
 
