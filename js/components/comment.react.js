@@ -1,5 +1,3 @@
-var CommentActionCreators = require('../actions/comment-action-creators');
-
 var React = require('react');
 
 var Comment = React.createClass({
