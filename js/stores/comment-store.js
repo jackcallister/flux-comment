@@ -1,6 +1,6 @@
 var CommentAppDispatcher = require('../dispatcher/comment-app-dispatcher');
-var ChatConstants = require('../constants/comment-app-constants');
-var ActionTypes = ChatConstants.ActionTypes;
+var CommentAppConstants = require('../constants/comment-app-constants');
+var ActionTypes = CommentAppConstants.ActionTypes;
 
 var assign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
@@ -30,8 +30,6 @@ var CommentStore = assign({}, EventEmitter.prototype, {
 CommentStore.dispatchToken = CommentAppDispatcher.register(function(payload) {
   var action = payload.action;
 
-  console.log(action.type);
-  
   switch(action.type) {
 
     case ActionTypes.CREATE_COMMENT:
