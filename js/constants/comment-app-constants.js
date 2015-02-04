@@ -1,13 +1,10 @@
-var keyMirror = require('keymirror');
-
 module.exports = {
 
-  ActionTypes: keyMirror({
-    CREATE_COMMENT: null
-  }),
+  ActionTypes: {
+    CREATE_COMMENT: "CREATE_COMMENT"
+  },
 
-  PayloadSources: keyMirror({
-    SERVER_ACTION: null,
-    VIEW_ACTION: null
-  })
+  PayloadSources: {
+    VIEW_ACTION: "VIEW_ACTION"
+  }
 }
